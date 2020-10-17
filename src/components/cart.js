@@ -44,7 +44,7 @@ class Cart extends Component {
             ))}
             <div>
 
-              <span>total price</span>
+              <span>total price {"  "} </span>
             <span>{this.props.cartItems.reduce(this.calculateTotalPrice, 0)}</span>
             </div>
             </div>

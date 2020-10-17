@@ -28,6 +28,7 @@
   z-index: 1000;
   animation: slideDown 1s;
   border-radius: 10px;
+  overflow-y: auto;
 }
 .itemInline {
   display: flex;
