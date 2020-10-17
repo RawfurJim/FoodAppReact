@@ -34,6 +34,11 @@
   display: flex;
   margin: 3px;
 }
+.closeButton {
+  padding: 10px;
+  cursor: pointer;
+  text-align: right;
+}
 @keyframes slideDown {
   from {
     top: 0px;

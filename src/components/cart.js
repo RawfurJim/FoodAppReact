@@ -35,6 +35,7 @@ class Cart extends Component {
           {
             this.state.isCartOpen?
             <div className = "cartItemsContainer">
+              <div onClick = {()=>this.setState({isCartOpen:false})} className = "closeButton">X</div>
             {this.props.cartItems.map(item=>(
               <div key = {item._id} className = "itemInline" >
               <p style={{ width:"40%"}}>{item.name}</p>
@@ -42,6 +43,7 @@ class Cart extends Component {
               <p style={{ margin: "4px",padding : "10px" }}>{item.quantity}</p>
               </div>
             ))}
+
             <div>
 
               <span>total price {"  "} </span>
