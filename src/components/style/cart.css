@@ -1,0 +1,45 @@
+.iconContainer {
+  position: relative;
+}
+.badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  height: 15px;
+  width: 15px;
+  font-size: 12px;
+  background-color: orange;
+  text-align: center;
+  color: white;
+  padding: 3px;
+}
+.cart {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cartItemsContainer {
+  position: fixed;
+  right: 0;
+  top: 40px;
+  height: 400px;
+  width: 300px;
+  background-color: orange;
+  z-index: 1000;
+  animation: slideDown 1s;
+  border-radius: 10px;
+}
+.itemInline {
+  display: flex;
+  margin: 3px;
+}
+@keyframes slideDown {
+  from {
+    top: 0px;
+    opacity: 0;
+  }
+  to {
+    top: 40px;
+    opacity: 1;
+  }
+}
