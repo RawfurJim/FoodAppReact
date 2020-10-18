@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { getFoods } from "../services/fakefoodSevices";
 import "./style/food.css";
-import Cart from "./cart.js"
+import Cart from "./cart.js";
 
 class Food extends Component {
   state = {
@@ -32,33 +32,28 @@ class Food extends Component {
   };
   render() {
     let cartItems = Object.values(this.state.cart);
-     
+
     return (
       <div>
-        
-      <Cart 
-      
-        cartItems={cartItems}
-      />
-    
-      <div className="row">
-       
-        {this.state.foods.map((food) => (
-          <div className="card col-3 " key={food._id}>
-            <img src={food.productImage} alt="Logo" />
-            <div className="card-body v">
-              <h5>{food.name}</h5>
-              <p>{food.price}</p>
-              <button
-                onClick={() => this.handleSubmit(food)}
-                className="btn btn-danger "
-              >
-                Add To Cart
-              </button>
+        <Cart cartItems={cartItems} />
+
+        <div className="row">
+          {this.state.foods.map((food) => (
+            <div className="card col-3 " key={food._id}>
+              <img src={food.productImage} alt="Logo" />
+              <div className="card-body v">
+                <h5>{food.name}</h5>
+                <p>{food.price}</p>
+                <button
+                  onClick={() => this.handleSubmit(food)}
+                  className="btn btn-danger "
+                >
+                  Add To Cart
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
       </div>
     );
   }
