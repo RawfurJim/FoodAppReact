@@ -7,8 +7,10 @@ import Ragister from "./components/ragister";
 import Login from "./components/login";
 import Logout from "./components/logout";
 import Admin from "./components/admin";
+//Authecation comment
 
 function App() {
+  const d = 14;
   return (
     <div className="App">
       <Navbar />
