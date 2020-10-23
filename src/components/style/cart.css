@@ -1,6 +1,13 @@
 .iconContainer {
-  position: relative;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  height: 15px;
+  width: 15px;
+  padding: 3px;
+  margin-right: 40px;
 }
+
 .badge {
   position: absolute;
   top: 6px;
@@ -16,6 +23,7 @@
 .cart {
   display: flex;
   justify-content: flex-end;
+  top: 0;
 }
 
 .cartItemsContainer {

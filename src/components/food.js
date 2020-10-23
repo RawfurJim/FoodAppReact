@@ -1,13 +1,19 @@
 import React, { Component } from "react";
-import { getFoods } from "../services/fakefoodSevices";
+import { getFood } from "../services/foodServices";
 import "./style/food.css";
 import Cart from "./cart.js";
 
 class Food extends Component {
   state = {
-    foods: getFoods(),
+    foods: [],
     cart: {},
   };
+  async componentDidMount() {
+    const { data } = await getFood();
+
+    this.setState({ foods: data });
+  }
+
   handleSubmit = (food) => {
     if (this.state.cart[food._id]) {
       const updatedfood = this.state.cart[food._id];
