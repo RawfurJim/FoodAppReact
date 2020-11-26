@@ -14,27 +14,17 @@ class Food extends Component {
     this.setState({ foods: data });
   }
 
-  handleSubmit = (food) => {
-    if (this.state.cart[food._id]) {
-      const updatedfood = this.state.cart[food._id];
-      updatedfood.quantity = updatedfood.quantity + 1;
-      this.setState({
-        cart: {
-          ...this.state.cart,
-          [food._id]: { ...updatedfood },
-        },
-      });
+  addToCart = (food) => {
+    let updatedCart = { ...this.state.cart };
+    if (updatedCart[food._id]) {
+      updatedCart[food._id].quantity = updatedCart[food._id].quantity + 1;
     } else {
-      this.setState({
-        cart: {
-          ...this.state.cart,
-          [food._id]: {
-            ...food,
-            quantity: 1,
-          },
-        },
-      });
+      updatedCart[food._id] = { ...food, quantity: 1 };
     }
+    this.setState({
+      cart: { ...updatedCart },
+    });
+    localStorage.setItem("foodCart", JSON.stringify(updatedCart));
   };
   render() {
     let cartItems = Object.values(this.state.cart);
@@ -51,7 +41,7 @@ class Food extends Component {
                 <h5>{food.name}</h5>
                 <p>{food.price}</p>
                 <button
-                  onClick={() => this.handleSubmit(food)}
+                  onClick={() => this.addToCart(food)}
                   className="btn btn-danger "
                 >
                   Add To Cart

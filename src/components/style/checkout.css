@@ -1,0 +1,54 @@
+.checkOut_Page {
+  display: flex;
+  border: 1px solid black;
+  top: 0;
+}
+.form-div {
+  height: 500px;
+  width: 600px;
+  border: 1px solid black;
+  margin: auto;
+  margin: 20px;
+  margin-right: 60px;
+  background-color: cornsilk;
+}
+form {
+  margin: 2px;
+}
+.submit_Button {
+  margin: 4px;
+}
+.item-div {
+  height: 500px;
+  width: 500px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: 30px;
+  border: 1px solid black;
+  overflow-y: auto;
+  background-color: cornsilk;
+}
+.item {
+  border: 1px solid black;
+  margin: 30px;
+  background-color: chartreuse;
+}
+
+.item_name {
+  margin: auto;
+  height: 100px;
+  width: 100px;
+  padding-top: 30px;
+}
+
+.item_image {
+  margin: auto;
+}
+
+.item_price {
+  margin: auto;
+}
+.checkout_heading {
+  text-align: center;
+  margin-bottom: 60px;
+}

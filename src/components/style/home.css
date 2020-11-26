@@ -1,0 +1,10 @@
+.main {
+  background-image: url("/aa.jpg");
+  height: 600px;
+  width: 100%;
+}
+p {
+  text-align: center;
+
+  color: white;
+}
