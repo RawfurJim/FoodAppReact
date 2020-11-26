@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./style/cart.css";
+import { withRouter } from "react-router-dom";
 
 class Cart extends Component {
   state = {
@@ -11,6 +12,9 @@ class Cart extends Component {
   calculateTotalPrice = (total, item) => {
     const itemPrice = item.quantity * item.price;
     return total + itemPrice;
+  };
+  handleCheckout = () => {
+    this.props.history.push("/checkout");
   };
 
   render() {
@@ -55,6 +59,13 @@ class Cart extends Component {
                 {this.props.cartItems.reduce(this.calculateTotalPrice, 0)}
               </span>
             </div>
+            <button
+              type="button"
+              onClick={this.handleCheckout}
+              className="btn btn-primary"
+            >
+              Checkout
+            </button>
           </div>
         ) : null}
       </div>
@@ -65,4 +76,4 @@ Cart.defaultProps = {
   cartItems: [],
 };
 
-export default Cart;
+export default withRouter(Cart);
