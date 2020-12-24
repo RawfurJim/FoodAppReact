@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./style/ragister.css";
 import Joi from "joi-browser";
-import { saveCustomer } from "../services/customerServices";
+import { saveCustomer } from "../../services/customerServices";
+import "./register.css";
 
 class Ragister extends Component {
   state = {

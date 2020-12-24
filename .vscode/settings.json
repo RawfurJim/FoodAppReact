@@ -1,8 +1,11 @@
-{ 	"[javascript]":
-     { 		"editor.formatOnSave": true, 	
-            "editor.insertSpaces": false, 	
-                "editor.detectIndentation": true, 
-                        "editor.tabSize": 4, 	
-                            "editor.codeActionsOnSave":
-                             { 			"source.fixAll": true 	
-	}	} }
+{ 	
+    "[javascript]":{ 		
+        "editor.formatOnSave": true, 	
+        "editor.insertSpaces": false, 	
+        "editor.detectIndentation": true, 
+        "editor.tabSize": 4, 	
+        "editor.codeActionsOnSave":{ 		
+            "source.fixAll": true 	
+        }	
+    } 
+}

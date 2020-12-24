@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Joi from "joi-browser";
-import "./style/checkout.css";
-import { saveOrder } from "../services/orderServices";
+import { saveOrder } from "../../services/orderServices";
+import "./checkout.css";
 
 class Checkout extends Component {
   state = {
@@ -34,7 +34,7 @@ class Checkout extends Component {
     e.preventDefault();
     const { cartItems } = this.state;
 
-    cartItems.map((item) => {
+    cartItems.forEach((item) => {
       const _id = item._id;
       const quantity = item.quantity;
       let product = { _id, quantity };

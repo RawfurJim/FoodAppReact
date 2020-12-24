@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Joi from "joi-browser";
-import { loginCustomer } from "../services/loginCustomerServices";
+import { loginCustomer } from "../../services/loginCustomerServices";
 
 class Login extends Component {
   state = {

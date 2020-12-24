@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { getFood } from "../services/foodServices";
-import "./style/food.css";
-import Cart from "./cart.js";
+import { getFood } from "../../services/foodServices";
+import Cart from "../../components/cart";
+import "./food.css";
 
 class Food extends Component {
   state = {

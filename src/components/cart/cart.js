@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "./style/cart.css";
 import { withRouter } from "react-router-dom";
+import "./cart.css";
 
 class Cart extends Component {
   state = {
