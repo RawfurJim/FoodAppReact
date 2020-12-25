@@ -61,16 +61,16 @@ class Ragister extends Component {
   render() {
     const { account, error } = this.state;
     return (
-      <div>
-        <h1>Register New Account</h1>
-        <div className="ragisterArea">
-          <form onSubmit={this.handleSubmit}>
+        <div className="register-page">
+          <form className='register-form' onSubmit={this.handleSubmit}>
+            <h1>Register New Account</h1>
             <div className="form-group">
               <label htmlFor="name">Name</label>
               <input
                 type="name"
                 value={account.name}
                 name="name"
+                placeholder="Enter your name"
                 className="form-control"
                 onChange={this.handleChange}
               />
@@ -83,6 +83,7 @@ class Ragister extends Component {
               <input
                 type="email"
                 value={account.email}
+                placeholder='Enter email'
                 name="email"
                 className="form-control"
                 onChange={this.handleChange}
@@ -97,6 +98,7 @@ class Ragister extends Component {
                 type="mobile"
                 value={account.mobile}
                 name="mobile"
+                placeholder='e.g +8801632659877'
                 className="form-control"
                 onChange={this.handleChange}
               />
@@ -110,6 +112,7 @@ class Ragister extends Component {
                 type="password"
                 value={account.password}
                 name="password"
+                placeholder='Enter password'
                 className="form-control"
                 onChange={this.handleChange}
               />
@@ -117,12 +120,11 @@ class Ragister extends Component {
                 <div className="alert alert-danger">{error.password}</div>
               )}
             </div>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn">
               Submit
             </button>
           </form>
         </div>
-      </div>
     );
   }
 }

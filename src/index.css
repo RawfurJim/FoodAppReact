@@ -1,6 +1,25 @@
+@import './theme/variables.css';
+
 *, html {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-size: 100%;
+}
+
+body {
+  font-family: 'Mulish', sans-serif;
+  background-color: var(--bluish);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Oswald', sans-serif;
 }

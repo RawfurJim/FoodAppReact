@@ -133,7 +133,7 @@ class Checkout extends Component {
             </div>
 
             {this.state.cartItems.map((item) => (
-              <div key={item._id} className="itemInline item">
+              <div key={item._id} className="itemInline cart-item">
                 <div className="item_name">
                   <p style={{ width: "40%" }}>{item.name}</p>
                 </div>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Joi from "joi-browser";
 import { loginCustomer } from "../../services/loginCustomerServices";
+import './login.css'
 
 class Login extends Component {
   state = {
@@ -58,20 +59,21 @@ class Login extends Component {
   render() {
     const { account, error } = this.state;
     return (
-      <div>
-        <h1>Login</h1>
-        <form onSubmit={this.handleSubmit}>
+      <div className='login-page'>
+        <form className='login-form' onSubmit={this.handleSubmit}>
+          <h1>Login</h1>
           <div className="form-group">
             <label htmlFor="email">Email</label>
             <input
               type="email"
               value={account.email}
               name="email"
+              placeholder='Enter email'
               className="form-control"
               onChange={this.handleChange}
             />
             {error.email && (
-              <div className="alert alert-danger">{error.email}</div>
+              <div className="error-message">{error.email}</div>
             )}
           </div>
 
@@ -82,13 +84,14 @@ class Login extends Component {
               value={account.password}
               name="password"
               className="form-control"
+              placeholder='Enter password'
               onChange={this.handleChange}
             />
             {error.password && (
-              <div className="alert alert-danger">{error.password}</div>
+              <div className="error-message">{error.password}</div>
             )}
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn">
             Submit
           </button>
         </form>

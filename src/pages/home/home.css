@@ -1,10 +1,43 @@
-.main {
-  background-image: url("/aa.jpg");
+.home-page {
+  min-height: calc(100vh - 70px);
+}
+
+.home-page .hero-section {
+  background-image: linear-gradient(to bottom, #ffffff42, #ff8d0054),
+  url("/aa.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   height: 600px;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-p {
-  text-align: center;
 
-  color: white;
+.hero-section .hero-title {
+  color: var(--white);
+  font-size: 4rem;
 }
+
+.foods-section {
+  padding: 4em 2em;
+  background-color: var(--bluish);
+}
+
+.foods-list-container {
+  width: 95%;
+  max-width: 1200px;
+  min-width: 600px;
+  margin: 0 auto;
+}
+
+.foods-section .section-title {
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+
+
+
+
