@@ -62,7 +62,6 @@ class Checkout extends Component {
 
   componentDidMount() {
     let localCart = JSON.parse(localStorage.getItem("foodCart"));
-    console.log(localCart);
     let cartItems = Object.values(localCart);
     this.setState({ cartItems });
   }

@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "../../hooks/use-cart";
 import Cart from '../cart'
 import "./navbar.css";
 
@@ -39,57 +40,54 @@ const getNavItems = (authUser) => {
   return navItems.filter(item=> !item.isHidden)
 }
 
-class Navbar extends Component {
-  state = {
-    isCartOpen: false
-  };
-  toggleCart = () => {
-    this.setState({ isCartOpen: !this.state.isCartOpen})
-  }
+const Navbar = (props) => {
+  const [isCartOpen, setIsCartOpen] = useState(false)
+  const { cartItems } = useCart()
 
-  closeCart = () => {
-    this.setState({ isCartOpen: false })
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen)
   }
+  const closeCart = () => {
+    setIsCartOpen(false)
+  } 
+  const { customer, pathname } = props;
 
-  render() {
-    const { customer, pathname } = this.props;
-    return (
-      <nav className="navbar">
-        <ul className="nav-items">
+  return (
+    <nav className="navbar">
+      <ul className="nav-items">
+        {
+          getNavItems(customer).map(item => (
+            <li className="nav-item" key={item.title}>
+              <Link
+                className={`nav-link ${item.path === pathname ? 'active': ''}`}
+                to={item.path}
+              >
+                {item.title}
+              </Link>
+            </li>
+          ))
+        }
+        <li className="cart-icon">
+          <i
+            className='fa fa-shopping-cart fa-3x carticon'
+            onClick={toggleCart}
+          ></i>
+          <div className="badge">
+            <p>{cartItems.length}</p>
+          </div>
           {
-            getNavItems(customer).map(item => (
-              <li className="nav-item" key={item.title}>
-                <Link
-                  className={`nav-link ${item.path === pathname ? 'active': ''}`}
-                  to={item.path}
-                >
-                  {item.title}
-                </Link>
-              </li>
-            ))
+            isCartOpen ?
+              <div className='cart-container'>
+                <Cart
+                  cartItems = {cartItems}
+                  onClose={closeCart}
+                /> 
+              </div> : null
           }
-          <li className="cart-icon">
-            <i
-              className='fa fa-shopping-cart fa-3x carticon'
-              onClick={this.toggleCart}
-            ></i>
-            <div className="badge">
-              <p>{3}</p>
-            </div>
-            {
-              this.state.isCartOpen ?
-                <div className='cart-container'>
-                  <Cart
-                    cartItems = {[]}
-                    onClose={this.closeCart}
-                  /> 
-                </div> : null
-            }
-          </li>
-        </ul>
-      </nav>
-    );
-  }
+        </li>
+      </ul>
+    </nav>
+  );
 }
 
 export default Navbar;

@@ -1,18 +1,9 @@
 import React from 'react'
+import { useCart } from '../../hooks/use-cart'
 import './food-card.css'
 
 const FoodCard = ({ food }) => {
-
-	const addToCart = (food) => {
-		let updatedCart = { };
-		if (updatedCart[food._id]) {
-		  updatedCart[food._id].quantity = updatedCart[food._id].quantity + 1;
-		} else {
-		  updatedCart[food._id] = { ...food, quantity: 1 };
-		}
-		localStorage.setItem("foodCart", JSON.stringify(updatedCart));
-	}
-
+	const { addToCart } = useCart()
 	return (
 		<div className="food-card" key={food._id}>
 			<img className='food-image' src={food.productImage} alt="food" />
