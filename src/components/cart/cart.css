@@ -1,59 +1,59 @@
-.iconContainer {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  height: 15px;
-  width: 15px;
-  padding: 3px;
-  margin-right: 40px;
-}
+@import '../../theme/variables.css';
 
-.badge {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  height: 15px;
-  width: 15px;
-  font-size: 12px;
-  background-color: orange;
-  text-align: center;
-  color: white;
-  padding: 3px;
-}
 .cart {
+  flex-direction: column;
   display: flex;
-  justify-content: flex-end;
-  top: 0;
+  background-color: var(--white);
+  padding: 1em 1.5em;
+  min-height: 300px;
+  width: 250px;
+  border-radius: 3px;
+  box-shadow: 5px 0 15px 0px rgba(0, 0, 0, 0.1);
+  color: var(--black);
+  font-size: 16px;
+  align-items: center;
 }
 
-.cartItemsContainer {
-  position: fixed;
-  right: 0;
-  top: 40px;
-  height: 400px;
-  width: 300px;
-  background-color: orange;
-  z-index: 1000;
-  animation: slideDown 1s;
-  border-radius: 10px;
-  overflow-y: auto;
+.cart .empty-cart {
+  margin-top: calc(50% - 10px);
+  color: grey;
 }
-.itemInline {
-  display: flex;
-  margin: 3px;
-}
-.closeButton {
-  padding: 10px;
+
+.close-icon-container {
   cursor: pointer;
   text-align: right;
+  align-self: flex-end;
 }
-@keyframes slideDown {
-  from {
-    top: 0px;
-    opacity: 0;
-  }
-  to {
-    top: 40px;
-    opacity: 1;
-  }
+
+.close-icon-container .close-icon {
+  font-size: 20px;
+}
+
+.divider {
+  margin-top: auto;
+  width: 100%;
+  height: 2px;
+  background-color: grey;
+}
+
+.total-price {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart .btn {
+	margin-top: 25px;
+	border: none;
+	outline: none;
+	padding: 10px 15px;
+	border-radius: 3px;
+	background-color: var(--secondary);
+  color: var(--white);
+}
+
+.cart .btn:hover {
+	background-color: var(--primary);
+	transition: .3s;
+	cursor: pointer;
 }

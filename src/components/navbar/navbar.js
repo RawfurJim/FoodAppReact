@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Cart from '../cart'
 import "./navbar.css";
 
 
@@ -39,7 +40,17 @@ const getNavItems = (authUser) => {
 }
 
 class Navbar extends Component {
-  state = {};
+  state = {
+    isCartOpen: false
+  };
+  toggleCart = () => {
+    this.setState({ isCartOpen: !this.state.isCartOpen})
+  }
+
+  closeCart = () => {
+    this.setState({ isCartOpen: false })
+  }
+
   render() {
     const { customer, pathname } = this.props;
     return (
@@ -60,11 +71,20 @@ class Navbar extends Component {
           <li className="cart-icon">
             <i
               className='fa fa-shopping-cart fa-3x carticon'
-              onClick={()=>{}}
+              onClick={this.toggleCart}
             ></i>
             <div className="badge">
               <p>{3}</p>
             </div>
+            {
+              this.state.isCartOpen ?
+                <div className='cart-container'>
+                  <Cart
+                    cartItems = {[]}
+                    onClose={this.closeCart}
+                  /> 
+                </div> : null
+            }
           </li>
         </ul>
       </nav>

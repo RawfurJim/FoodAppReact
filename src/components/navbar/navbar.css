@@ -53,3 +53,21 @@
   right: -10px;
   box-shadow: 0 0 10px -1px rgba(0, 0, 0, .2);
 }
+
+.cart-icon .cart-container {
+  position: absolute;
+  right: -50px;
+  top: 45px;
+  animation: slideDown .3s linear;
+}
+
+@keyframes slideDown {
+  from {
+    top: 20px;
+    opacity: 0;
+  }
+  to {
+    top: 45px;
+    opacity: 1;
+  }
+}

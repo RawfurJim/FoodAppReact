@@ -3,12 +3,7 @@ import { withRouter } from "react-router-dom";
 import "./cart.css";
 
 class Cart extends Component {
-  state = {
-    isCartOpen: false,
-  };
-  toggleCart = () => {
-    this.setState({ isCartOpen: !this.state.isCartOpen });
-  };
+  
   calculateTotalPrice = (total, item) => {
     const itemPrice = item.quantity * item.price;
     return total + itemPrice;
@@ -18,60 +13,64 @@ class Cart extends Component {
   };
 
   render() {
-    let classes = "fa fa-shopping-cart fa-3x carticon";
 
     return (
       <div className="cart">
-        <div className="iconContainer">
-          <i
-            className={classes}
-            onClick={this.toggleCart}
-            style={{ cursor: "pointer" }}
-          ></i>
-        </div>
-        <div className="badge">{this.props.cartItems.length}</div>
-
-        {this.state.isCartOpen ? (
-          <div className="cartItemsContainer">
-            <div
-              onClick={() => this.setState({ isCartOpen: false })}
-              className="closeButton"
-            >
-              X
+          <div
+            className="close-icon-container"
+            onClick={() => this.props.onClose()}
+          >
+            <i class="fa fa-times close-icon"></i>
+          </div>
+        {
+          this.props.cartItems.length !== 0 ?
+          <>
+            <div className="cart-items">
+                {
+                  this.props.cartItems.map((item) => (
+                    <div key={item._id} className="itemInline">
+                      <p style={{ width: "40%" }}>{item.name}</p>
+                      <img
+                        src={item.productImage}
+                        alt="Logo"
+                        style={{ width: "50px", height: "50px" }}
+                      />
+                      <p style={{ margin: "4px", padding: "10px" }}>
+                        {item.quantity}
+                      </p>
+                    </div>
+                  ))
+                }
             </div>
-            {this.props.cartItems.map((item) => (
-              <div key={item._id} className="itemInline">
-                <p style={{ width: "40%" }}>{item.name}</p>
-                <img
-                  src={item.productImage}
-                  alt="Logo"
-                  style={{ width: "50px", height: "50px" }}
-                />
-                <p style={{ margin: "4px", padding: "10px" }}>
-                  {item.quantity}
-                </p>
-              </div>
-            ))}
-
-            <div>
-              <span>total price {"  "} </span>
+            <div className="divider" />
+            <div className='total-price'>
+              <span>Total price </span>
               <span>
-                {this.props.cartItems.reduce(this.calculateTotalPrice, 0)}
+                {
+                  this.props.cartItems.reduce(this.calculateTotalPrice, 0)
+                }
+                {' '}
+                Tk
               </span>
             </div>
             <button
               type="button"
               onClick={this.handleCheckout}
-              className="btn btn-primary"
+              className="btn"
             >
               Checkout
             </button>
+          </>
+          :
+          <div className="empty-cart">
+            Your cart is empty
           </div>
-        ) : null}
+        }
       </div>
-    );
+    ) 
   }
 }
+
 Cart.defaultProps = {
   cartItems: [],
 };
